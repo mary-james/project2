@@ -1,0 +1,29 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="dash">
+<p>{{first_name}} {{last_name}}  , Welcome to your dashboard</p>
+</div>
+
+<div *ngFor="let user of taskmembers.data let i = index"[attr.data-index]="i"> 
+
+<div class="timeline" >
+  <div *ngIf="user.emp_id==emp_id">
+  <div class="container left">
+    <div class="content">
+      <h2>{{user.task_name}}</h2>
+      <p>{{user.task_description}}</p>
+<input type="submit" (click)="Details(i)" value="Task Details">  &nbsp;
+<input type="submit" (click)="count(i)" value="Counts">    
+    <div *ngIf="l!=0 && i==p">
+      <p>Number of people to whom the task was alotted:{{n}}</p>
+      <p>Number of people who have completed the task: {{m}}</p>
+    </div>
+</div>
+  </div>
+</div>
+
+      
+</div>
+
+</div>
+

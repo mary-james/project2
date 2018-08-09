@@ -1,0 +1,43 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="kk">
+<form #userForm="ngForm" ngNativeValidate (ngSubmit)="saveUser(userForm.value)">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Edit Role Mapping</h3>
+    </div>
+</div>
+    <div class="panel-body">
+      <div class="form-group" [class.has-success]="emp_idControl.valid" 
+      [class.has-error]="emp_idControl.invalid && emp_idControl.touched">
+        <label for="emp_id" class="control-label">Employee ID</label>
+        <input required id="emp_id" [(ngModel)]="tasks.emp_id" 
+        name="emp_id" type="number" #emp_idControl="ngModel" class="form-control">
+        <span class="help-block" *ngIf="emp_idControl.invalid && emp_idControl.touched">
+          Employee Id is required
+        </span>
+      </div>
+    </div>
+    <div class="panel-body">
+        <div class="form-group" [class.has-success]="role_codeControl.valid" 
+        [class.has-error]="role_codeControl.invalid && role_codeControl.touched">
+          <label for="role_code" class="control-label">Role Code</label>
+          <input required id="role_code" [(ngModel)]="tasks.role_code" 
+          name="role_code" type="text" #role_codeControl="ngModel" class="form-control">
+          <span class="help-block" *ngIf="role_codeControl.invalid && role_codeControl.touched">
+            Role Code is required
+          </span>
+        </div>
+      </div>
+    
+      
+      
+   
+   
+      <button type="submit" class="button" [disabled]="userForm.invalid">Submit</button>
+      <button type="button" class="button" (click)="Cancel()" >Cancel</button>
+
+  
+</form>
+
+

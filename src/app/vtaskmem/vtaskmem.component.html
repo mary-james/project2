@@ -1,0 +1,35 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+<div class="table">
+
+<table  id="customers" >
+  <tr>
+    <th>S.NO</th>
+    <th>Employee Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Task Id</th>
+  
+   
+  </tr>
+  
+   <tr  *ngFor="let user of userDataListing.data let i = index"[attr.data-index]="i">
+    <td>{{i+1}}</td>
+    <td>{{user.emp_id}}</td>
+    <td>{{user.first_name}}</td>
+    <td>{{user.last_name}}</td>
+    
+    <td>{{user.task_id}}</td>
+    
+    
+      
+
+  </tr>
+  
+</table>
+
+</div>

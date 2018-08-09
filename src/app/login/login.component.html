@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+		
+	
+  <meta charset="UTF-8">
+
+  <title>HR PMO APP</title>
+
+</head>
+
+<body background="1234.png">
+
+  <div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>HR<span>PMO APP</span></div>
+		</div>
+		<br>
+		<div class="login" >
+      <form [formGroup]="rForm" (submit)="loginUser($event)" >
+				<input type="text" id="emp_id" placeholder="Employee ID" name="user" formControlName="emp_id"><br>
+				<div class="alert" *ngIf="!rForm.controls['emp_id'].valid && (rForm.controls['emp_id'].touched)"><i class="fa fa-times-circle"></i> Employee Id is required! 
+					
+						</div>
+				<input type="password"  placeholder="Password" name="password" formControlName="password"><br>
+				<div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched"> <i class="fa fa-times-circle"></i> Password is required!</div><br>
+		<p class="logint" >Login As:</p>
+		<select name="Login As" class="logins">
+			<option value="asso">Associate</option>
+			<option value="lead">Lead</option>
+			<option value="head">Head</option>
+			<option value="adm">Admin</option>
+			
+		  </select><br>
+		  <input type="submit" value="Login" >
+      </form>
+    
+    </div>
+  
+		
+  
+
+</body>
+
+</html>

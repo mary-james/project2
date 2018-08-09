@@ -1,0 +1,41 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div class="table">
+<table id="customers" >
+  <tr>
+    <th>S.NO</th>
+    <th>Role Id</th>
+    <th>Role Code</th>
+    <th>Role Name</th>
+    <th>Role Description</th>
+    <th>Created By</th>
+    <th>Modified By</th>
+    
+    <th>Actions</th>
+   
+  </tr>
+   <tr  *ngFor="let user of userData.data let i = index"[attr.data-index]="i">
+      <td>{{i+1}}</td>
+    <td>{{user.role_id}}</td>
+    <td>{{user.role_code}}</td>
+    <td>{{user.role_name}}</td>
+    <td>{{user.role_description}}</td>
+    <td>{{user.created_by}}</td>
+    <td>{{user.modified_by}}</td>
+    
+  
+    
+    
+    <td ><a routerLink = 'editurole'> 
+        <span class="glyphicon glyphicon-pencil"(click)="getIndex(i)" ></span>
+      </a> &nbsp;  
+      <a ><button class="btn" ><i class="fa fa-trash" (click)="deleteUser(i)"></i></button></a></td>
+    
+      
+
+  </tr>
+  
+</table>
+</div>

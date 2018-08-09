@@ -1,0 +1,49 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="kk">
+<form #userForm="ngForm" ngNativeValidate (ngSubmit)="changeP(userForm.value)">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Change Password</h3>
+      </div>
+  </div>
+      <div class="panel-body">
+        <div class="form-group" [class.has-success]="passwordControl.valid" 
+        [class.has-error]="passwordControl.invalid && passwordControl.touched">
+          <label for="password" class="control-label">Enter New password</label>
+          <input required minlength="8" maxlength="12" id="password" [(ngModel)]="user.password" 
+          name="password" type="password" #passwordControl="ngModel" class="form-control" #password="ngModel">
+          <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+            <div [hidden]="!password.errors.required">
+              password is required
+            </div>
+            <div [hidden]="!password.errors.minlength">
+                Password should contain at least 8 characters
+              </div>
+              <div [hidden]="!password.errors.maxlength">
+                  Password should contain a maximum of 12 characters
+                </div>
+
+                    
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+          <div class="form-group" [class.has-success]="rpasswordControl.valid" 
+          [class.has-error]="rpasswordControl.invalid && rpasswordControl.touched">
+            <label for="rpassword" class="control-label">Re Enter password</label>
+            <input required id="rpassword" [(ngModel)]="user.rpassword" 
+            name="rpassword" type="password" #rpasswordControl="ngModel" class="form-control">
+            <span class="help-block" *ngIf="rpasswordControl.invalid && rpasswordControl.touched">
+             Please Reenter the password 
+            </span>
+          </div>
+        </div>
+      
+          
+        
+     
+          <button type="submit" class="button" [disabled]="userForm.invalid">Change </button>
+        
+        </form>
+      </div>

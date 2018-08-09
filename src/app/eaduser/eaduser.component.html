@@ -1,0 +1,53 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+<div class="table">
+
+<table  id="customers" >
+  <tr>
+    <th>S.NO</th>
+    <th>Employee Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Created By (Emp Id)</th>
+    
+    <th>Modified By(Emp Id)</th>
+   
+    <th>Actions</th>
+   
+  </tr>
+  
+   <tr  *ngFor="let user of userDataListing.data let i = index"[attr.data-index]="i">
+    <td>{{i+1}}</td>
+    <td>{{user.emp_id}}</td>
+    <td>{{user.first_name}}</td>
+    <td>{{user.last_name}}</td>
+    
+    <td>{{user.phone_no}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.gender}}</td>
+    <td>{{user.created_by}}</td>
+    
+    <td>{{user.modified_by}}</td>
+    
+    
+    
+    
+    <td ><a routerLink = 'edituser'> 
+        <span class="glyphicon glyphicon-pencil"(click)="getIndex(i)" ></span>
+      </a> &nbsp;  
+      <a ><button class="btn" ><i class="fa fa-trash" (click)="deleteUser(i)"></i></button></a></td>
+    
+      
+
+  </tr>
+  
+</table>
+
+</div>

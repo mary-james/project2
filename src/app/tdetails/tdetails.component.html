@@ -1,0 +1,86 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="kk">
+  
+<form #taskForm="ngForm" ngNativeValidate (ngSubmit)="saveTask(taskForm.value)">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{task_name}} for month {{tdetail.month}}</h3>
+    </div>
+</div>
+<div class="panel-body">
+    <div class="form-group" [class.has-success]="monthControl.valid" 
+    [class.has-error]="monthControl.invalid && monthControl.touched">
+      <label for="month" class="control-label">Month</label>
+      <select required id="month" [(ngModel)]="tdetail.month" 
+      name="month" type="text" #monthControl="ngModel" class="form-control">
+      <option value="January">January</option>
+			<option value="February">February</option>
+			<option value="March">March</option>
+      <option value="April">April</option>
+      <option value="May">May</option>
+      <option value="June">June</option>
+      <option value="July">July</option>
+      <option value="August">August</option>
+      <option value="September">September</option>
+      <option value="October">October</option>
+      <option value="November">November</option>
+      <option value="December">December</option>
+
+
+
+     </select>
+      <span class="help-block" *ngIf="monthControl.invalid && monthControl.touched">
+       Month is required
+       
+      </span>
+    </div>
+   
+        <div class="form-group" [class.has-success]="var_1Control.valid" 
+        [class.has-error]="var_1Control.invalid && var_1Control.touched">
+          <label for="var_1" class="control-label">Variable1</label>
+          <input required id="var_1" [(ngModel)]="tdetail.var_1" 
+          name="var_1" type="text" #var_1Control="ngModel" class="form-control">
+          <span class="help-block" *ngIf="var_1Control.invalid && var_1Control.touched">
+           Variable is required
+          </span>
+        </div>
+
+        <div class="form-group" [class.has-success]="var_2Control.valid" 
+        [class.has-error]="var_2Control.invalid && var_2Control.touched">
+          <label for="var_2" class="control-label">Variable2</label>
+          <input required id="var_2" [(ngModel)]="tdetail.var_2" 
+          name="var_2" type="text" #var_2Control="ngModel" class="form-control">
+          <span class="help-block" *ngIf="var_2Control.invalid && var_2Control.touched">
+           Variable is required
+          </span>
+        </div>
+        <div class="form-group" [class.has-success]="var_3Control.valid" 
+        [class.has-error]="var_3Control.invalid && var_3Control.touched">
+          <label for="var_3" class="control-label">Variable3</label>
+          <input required id="var_3" [(ngModel)]="tdetail.var_3" 
+          name="var_3" type="text" #var_3Control="ngModel" class="form-control">
+          <span class="help-block" *ngIf="var_3Control.invalid && var_3Control.touched">
+           Variable is required
+          </span>
+        </div>
+    </div>
+    
+      
+      
+      
+     
+      
+      
+      
+      
+      
+
+   
+      <button type="submit" class="button" [disabled]="taskForm.invalid">Save</button>
+    
+  
+</form>
+</div>
+
+

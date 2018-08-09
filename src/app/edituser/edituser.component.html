@@ -1,0 +1,73 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="kk">
+  <form #userForm="ngForm" ngNativeValidate (ngSubmit)="updateUser(userForm.value)">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">UPDATE USER</h3>
+      </div>
+    </div>
+     
+      <div class="panel-body">
+        <div class="form-group" [class.has-success]="first_nameControl.valid" 
+        [class.has-error]="first_nameControl.invalid && first_nameControl.touched">
+          <label for="first_name" class="control-label">First Name</label>
+          <input required id="first_name"  [(ngModel)]="users.first_name" 
+          name="first_name" type="text"  #first_nameControl="ngModel" class="form-control">
+          <span class="help-block" *ngIf="first_nameControl.invalid && first_nameControl.touched">
+            First Name is required
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input id="last_name" [(ngModel)]="users.last_name" name="last_name" type="text" class="form-control">
+        </div>
+        <div class="form-group" [class.has-error]="email.invalid && email.touched">
+          <label for="email" class="control-label">Email</label>
+          <input required id="email" 
+          [email]="users.email!==''" id="email" [(ngModel)]="users.email" name="email" type="text" #email="ngModel" class="form-control">
+          <span class="help-block" *ngIf="email.errors?.required && email.touched">
+            Email is required
+          </span>
+          <span class="help-block" *ngIf="email.errors?.email && email.touched">
+            Email is invalid
+          </span>
+        </div>
+        <div class="form-group" [class.has-error]="phoneNumber.invalid && phoneNumber.touched">
+          <label class="control-label" for="phoneNumber">Phone Number</label>
+          <input required id="phonenumber" #phoneNumber="ngModel"
+          id="phoneNumber" [(ngModel)]="users.phone_no" name="phoneNumber" type="number" size="10"  class="form-control">
+          <span class="help-block" *ngIf="phoneNumber.invalid && phoneNumber.touched">
+            Phone Number is required
+          </span>
+          
+        </div>
+        
+        <div class="form-group" [class.has-error]="gender.invalid && gender.touched">
+          <label class="control-label">Gender</label>
+          <div class="form-control">
+            <label class="radio-inline">
+              <input type="radio" value="m" #gender="ngModel" required name="gender" [(ngModel)]="users.gender"> Male
+            </label>
+            <label class="radio-inline">
+              <input type="radio" value="f" #gender="ngModel" required name="gender" [(ngModel)]="users.gender"> Female
+            </label>
+          </div>
+          <span class="help-block" *ngIf="gender.invalid && gender.touched">
+           Gender is required
+          </span>
+        </div>
+        
+        
+        
+        
+      </div>
+     
+        <button type="submit" class="button" [disabled]="userForm.invalid">Submit</button>
+        <button type="button" class="button" (click)="Cancel()" >Cancel</button>
+
+    
+  </form>
+  </div>
+  
+  

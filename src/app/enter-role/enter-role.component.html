@@ -1,0 +1,59 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="kk">
+<form #userForm="ngForm" ngNativeValidate (ngSubmit)="addNewRole(userForm.value)">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">ADD USER ROLE</h3>
+    </div>
+    </div>
+    <div class="panel-body">
+        <div class="form-group" [class.has-success]="role_idControl.valid" 
+        [class.has-error]="role_idControl.invalid && role_idControl.touched">
+          <label for="role_id" class="control-label">Role Id</label>
+          <input required id="role_id" [(ngModel)]="user1.role_id" 
+          name="role_id" type="number" #role_idControl="ngModel" class="form-control">
+          <span class="help-block" *ngIf="role_idControl.invalid && role_idControl.touched">
+            Role Id is required
+          </span>
+        </div>
+      </div>
+    <div class="panel-body">
+      <div class="form-group" [class.has-success]="role_codeControl.valid" 
+      [class.has-error]="role_codeControl.invalid && role_codeControl.touched">
+        <label for="role_code" class="control-label">Role Code</label>
+        <input required id="role_code" [(ngModel)]="user1.role_code" 
+        name="role_code" type="text" #role_codeControl="ngModel" class="form-control">
+        <span class="help-block" *ngIf="role_codeControl.invalid && role_codeControl.touched">
+          Role code is required
+        </span>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="form-group" [class.has-success]="role_nameControl.valid" 
+      [class.has-error]="role_nameControl.invalid && role_nameControl.touched">
+        <label for="role_name" class="control-label">Role Name</label>
+        <input required id="role_name" [(ngModel)]="user1.role_name" 
+        name="role_name" type="text" #role_nameControl="ngModel" class="form-control">
+        <span class="help-block" *ngIf="role_nameControl.invalid && role_nameControl.touched">
+          Role Name is required
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="role_description">Role Description</label>
+        <input id="role_description" [(ngModel)]="user1.role_description" name="role_description" type="text" class="form-control">
+      </div>
+      
+      
+      
+      
+      
+    </div>
+    
+      <button type="submit" class="button" [disabled]="userForm.invalid">Submit</button>
+      <button type="button" class="button" (click)="Cancel()" >Cancel</button>
+
+  
+</form>
+
+

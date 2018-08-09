@@ -1,0 +1,43 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Team -->
+<section id="team" class="pb-5">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+    <div class="container">
+            
+
+        <h5 class="section-title h1">UNASSIGN TASK </h5>
+        
+                   <div class="row">
+            
+          <div *ngFor ="let user of taskmembers.data let  i = index" [attr.data-index]="i">
+            <!-- Team member -->
+            <div align="right">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    
+                                    <h4 class="card-title">{{user.tast_name}}</h4>
+                                    <p class="card-text">VIEW THE ASSIGNED USERS</p>
+                                    <div  class="btn btn-primary btn-sm"  (click)="assign(i)"><i class="fa fa-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                </div>
+            </div>
+          </div>
+          </div>
+           
+            <!-- ./Team member -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team -->

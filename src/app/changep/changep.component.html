@@ -1,0 +1,26 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="kk">
+<form #userForm="ngForm" ngNativeValidate (ngSubmit)="checkP(userForm.value)">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Change Password</h3>
+      </div>
+  </div>
+      <div class="panel-body">
+        <div class="form-group" [class.has-success]="passwordControl.valid" 
+        [class.has-error]="passwordControl.invalid && passwordControl.touched">
+          <label for="password" class="control-label">Enter Old password</label>
+          <input required id="password" [(ngModel)]="user.password" 
+          name="password" type="password" #passwordControl="ngModel" class="form-control">
+          <span class="help-block" *ngIf="passwordControl.invalid && passwordControl.touched">
+           Old Password is required
+          </span>
+        </div>
+      
+      
+          <button type="submit" class="button" [disabled]="userForm.invalid">Change </button>
+        
+      </div>
+        </form>
+      

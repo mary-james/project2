@@ -1,0 +1,33 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+   
+<div class="table">
+    <table id="customers">
+    <tr>
+        <th>EMP ID</th>
+        <th>First Name</th>
+        <th>Assign </th>
+       
+      </tr>
+<tbody *ngFor="let user of userData.data let i = index"[attr.data-index]="i"> 
+        
+  <tr *ngIf="user.task_id!=x" >
+        
+      
+      
+    <td>{{user.emp_id}}</td>
+    <td>{{user.first_name}}</td>
+    <td><a><span class="glyphicon glyphicon-ok"(click)="assignTask(i)" ></span></a>
+      </td>
+  
+  </tr>
+
+</tbody>
+</table>
+</div>
+
